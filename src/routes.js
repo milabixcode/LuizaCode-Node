@@ -1,9 +1,10 @@
 import { Router } from 'express';
-import MyFirstController from './app/controller/MyFirstController';
+import UserController from './app/controller/UserController';
 
 const routes = new Router();
 
-routes.post('/', MyFirstController.store);
-routes.get('/', MyFirstController.index);
+routes.post('/user', UserController.store);
+
+routes.get('/index', UserController.index);
 
 export default routes;
