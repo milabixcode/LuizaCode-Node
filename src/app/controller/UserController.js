@@ -1,15 +1,38 @@
+import * as Yup from 'yup';
 import User from '../models/User'
 
 class UserController{
   async store(req, res){
+    const schema = Yup.object().shape({
+      name: Yup.string().required(),
+      email: Yup.string().email().required(), //Yup é um validador
+      password: Yup.string().required().min(6), //a senha requer ao menos 6 caracteres
+    });
+
+    //Await: força uma chamada assíncrona a ser executada sincronamente.
+    if(!(await schema.isValid(req.body))){
+      return res.status(401).json({ message: 'Ooops dados inválidos'})
+    }
+
+    const userExists = await User.findOne({ 
+      where: {
+        email: req.body.email
+      }
+    });
+
+    if(userExists){
+      return res.status(401).json({ message: 'Usuário já cadastrado em nossa base' })
+    }
+
     const { id, name, email } = await User.create(req.body);
     return res.json({ id, name, email });
   };
+
   async index(req, res){
     const person = {
-      name: "Camila",
+      name: "Nome da Pessoa",
       age: 21,
-      email:'camila@email.com'
+      
     }
     return res.status(200).json(person);
   }

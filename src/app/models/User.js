@@ -1,5 +1,4 @@
 import Sequelize, { Model } from 'sequelize';
-import { username } from '../../config/database';
 import bcrypt from 'bcryptjs';
 
 class User extends Model {
@@ -20,6 +19,9 @@ class User extends Model {
         }
     })
     return this;
+    }
+    checkPassword(password){
+        return bcrypt.compare(password, this.password_hash)
     }
 
 } 
