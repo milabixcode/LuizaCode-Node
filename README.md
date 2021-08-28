@@ -1,7 +1,10 @@
 # Introdução ao NODEJS
 **Aula 1** - Iniciando com ExpressJs (Framework para Node.js que fornece recursos mínimos para construção de servidores web);
+
 **Aula 2** - Relacionamento com o Banco de Dados;
+
 **Aula 3** - Criando usuário e utilizando o bcrypt;
+
 **Aula 4** - Validando dados e estruturando middleware;
 
 ### Serviços usados:
