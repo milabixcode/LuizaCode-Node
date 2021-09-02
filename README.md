@@ -19,7 +19,7 @@ npm i
 npm i sequelize-cli -D
 npm i sequelize
 npm install pg --save
-npm i pg-hstore    //Instala o drive do postgree (dialeto)
+npm i pg-hstore    //Instala o drive do postgre (dialeto)
 npm i jsonwebtoken //Instala o jason web token (autentica o usuário e entrega um token para o usuário)
 npm i yup          //Instala o validador (se um email ou outra coisa estiver num formato errado ele ajeita)
 ```
